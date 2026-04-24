@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>BankSim - Dashboard</title>
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+</head>
+
+<body id="page-top">
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon"><i class="fas fa-university"></i></div>
+                <div class="sidebar-brand-text mx-3">BankSim</div>
+            </a>
+            <hr class="sidebar-divider my-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i><span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="transactions.html">
+                    <i class="fas fa-fw fa-table"></i><span>Transactions</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="loans.html">
+                    <i class="fas fa-fw fa-money-bill"></i><span>Loans</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="currency.html">
+                    <i class="fas fa-fw fa-exchange-alt"></i><span>Currency Exchange</span>
+                </a>
+            </li>
+            <hr class="sidebar-divider d-none d-md-block">
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="userFullName">Loading...</span>
+                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Logout
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Main Content -->
+                <div class="container-fluid">
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                    </div>
+
+                    <!-- Stat Cards Row -->
+                    <div class="row">
+                        <!-- Balance Card -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Account Balance</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="userBalance">Loading...</div>
+                                        </div>
+                                        <div class="col-auto"><i class="fas fa-wallet fa-2x text-gray-300"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Account Name Card -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Account Holder</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="userNameCard">Loading...</div>
+                                        </div>
+                                        <div class="col-auto"><i class="fas fa-user fa-2x text-gray-300"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Deposit and Withdraw Row -->
+                    <div class="row">
+                        <!-- Deposit Card -->
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-success">Deposit Funds</h6>
+                                </div>
+                                <div class="card-body">
+                                    <input type="number" id="depositAmount" class="form-control mb-3" placeholder="Enter amount (KES)">
+                                    <button id="depositBtn" class="btn btn-success btn-block">Deposit</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Withdraw Card -->
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-danger">Withdraw Funds</h6>
+                                </div>
+                                <div class="card-body">
+                                    <input type="number" id="withdrawAmount" class="form-control mb-3" placeholder="Enter amount (KES)">
+                                    <button id="withdrawBtn" class="btn btn-danger btn-block">Withdraw</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Transactions -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Recent Transactions</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>Amount</th>
+                                            <th>Balance After</th>
+                                            <th>Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="transactionTable">
+                                        <tr><td colspan="4" class="text-center">No transactions yet</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- End of Main Content -->
+
+            </div>
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>BankSim &copy; 2026</span>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Logout Modal -->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal"><span>×</span></button>
+                </div>
+                <div class="modal-body">Select "Logout" below to end your session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html" id="logoutBtn">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', async function() {
+
+        // check if user is logged in
+        const token = localStorage.getItem('token');
+        if (!token) {
+            window.location.href = 'login.html';
+            return;
+        }
+
+        // logout clears token
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            localStorage.removeItem('token');
+        });
+
+        // fetch user profile
+        const response = await fetch('http://localhost:5113/api/Dashboard/profile', {
+            headers: { 'Authorization': 'Bearer ' + token }
+        });
+
+        if (response.ok) {
+            const user = await response.json();
+            document.getElementById('userFullName').textContent = user.fullName;
+            document.getElementById('userNameCard').textContent = user.fullName;
+            document.getElementById('userBalance').textContent = 'KES ' + user.balance.toFixed(2);
+        } else {
+            localStorage.removeItem('token');
+            window.location.href = 'login.html';
+            return;
+        }
+
+        // fetch recent transactions
+        async function loadTransactions() {
+            const txResponse = await fetch('http://localhost:5113/api/Dashboard/transactions', {
+                headers: { 'Authorization': 'Bearer ' + token }
+            });
+            if (txResponse.ok) {
+                const transactions = await txResponse.json();
+                const tbody = document.getElementById('transactionTable');
+                if (transactions.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="4" class="text-center">No transactions yet</td></tr>';
+                    return;
+                }
+                tbody.innerHTML = '';
+                transactions.slice(0, 5).forEach(tx => {
+                    tbody.innerHTML += `
+                        <tr>
+                            <td>${tx.type}</td>
+                            <td>KES ${tx.amount.toFixed(2)}</td>
+                            <td>KES ${tx.balanceAfter.toFixed(2)}</td>
+                            <td>${new Date(tx.createdAt).toLocaleDateString()}</td>
+                        </tr>`;
+                });
+            }
+        }
+
+        loadTransactions();
+
+        // deposit
+        document.getElementById('depositBtn').addEventListener('click', async function() {
+            const amount = parseFloat(document.getElementById('depositAmount').value);
+            if (!amount || amount <= 0) { alert('Enter a valid amount'); return; }
+            const res = await fetch('http://localhost:5113/api/Dashboard/deposit', {
+                method: 'POST',
+                headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' },
+                body: JSON.stringify({ amount })
+            });
+            if (res.ok) {
+                const data = await res.json();
+                document.getElementById('userBalance').textContent = 'KES ' + data.balance.toFixed(2);
+                document.getElementById('depositAmount').value = '';
+                alert('Deposit successful!');
+                loadTransactions();
+            } else { alert('Deposit failed'); }
+        });
+
+        // withdraw
+        document.getElementById('withdrawBtn').addEventListener('click', async function() {
+            const amount = parseFloat(document.getElementById('withdrawAmount').value);
+            if (!amount || amount <= 0) { alert('Enter a valid amount'); return; }
+            const res = await fetch('http://localhost:5113/api/Dashboard/withdraw', {
+                method: 'POST',
+                headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' },
+                body: JSON.stringify({ amount })
+            });
+            if (res.ok) {
+                const data = await res.json();
+                document.getElementById('userBalance').textContent = 'KES ' + data.balance.toFixed(2);
+                document.getElementById('withdrawAmount').value = '';
+                alert('Withdrawal successful!');
+                loadTransactions();
+            } else { alert('Insufficient funds or error'); }
+        });
+
+    });
+    </script>
+
+</body>
+</html>
