@@ -1,6 +1,8 @@
 # BANKFr - Banking Admin Dashboard
 
-A modern, responsive admin dashboard built with Bootstrap for banking and financial management applications.
+A modern, responsive admin dashboard built with Bootstrap for [**BankApi** ](https://github.com/l7nny/BankApi) banking and financial management applications.
+
+this is front end for [**BankApi** ](https://github.com/l7nny/BankApi)
 
 ## 📋 Overview
 
@@ -96,67 +98,19 @@ To update npm packages:
 npm update
 ```
 
-## 📄 Pages Included
+X 📄 Pages Included
 
 - **Dashboard** - Main admin interface
 - **Login** - User authentication page
 - **Registration** - New user signup
-- **Forgot Password** - Password recovery flow
+- 
+   ### plz note
+- ### This is a template for the frontend only
+- ### Implement  [**BankApi** ](https://github.com/l7nny/BankApi) backend
 
-## 🔒 Security Notes
 
-- This is a template for the frontend only
-- Implement proper backend authentication
-- Never commit sensitive data or API keys
-- Use HTTPS in production
-- Validate all user inputs on the server
-
-## 🐛 Troubleshooting
-
-### Gulp not running after `npm install`
-
-Make sure you have the Gulp CLI installed globally:
-```bash
-npm install -g gulp-cli
-```
-
-### Port already in use
-
-The development server uses port 3000 by default. If it's already in use, modify the Gulp configuration or specify a different port.
-
-### Styles not compiling
-
-Clear the cache and reinstall dependencies:
-```bash
-rm -rf node_modules
-npm install
-```
-
-## 📝 License
-
-Copyright 2013-2021 Start Bootstrap LLC. Code released under the [MIT License](https://github.com/l7nny/BANKFr/blob/main/LICENSE).
-
-This project is based on [SB Admin 2](https://startbootstrap.com/theme/sb-admin-2/) by Start Bootstrap.
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit pull requests or open issues for bugs and feature requests.
 
 ## 👤 Author
 
-**l7nny** - [GitHub Profile](https://github.com/l7nny)
+ [**l7nny** ](https://github.com/l7nny)
 
-## 🙏 Acknowledgments
-
-- [Start Bootstrap](https://startbootstrap.com/) - Original theme
-- [Bootstrap](https://getbootstrap.com/) - CSS framework
-- [Font Awesome](https://fontawesome.com/) - Icon library
-- [jQuery](https://jquery.com/) - JavaScript library
-
-## 📞 Support
-
-For issues, questions, or suggestions, please [open an issue](https://github.com/l7nny/BANKFr/issues) on GitHub.
-
----
-
-**Last Updated:** 2026-05-14
